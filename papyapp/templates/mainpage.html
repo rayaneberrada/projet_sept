@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Titre</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+    </head>
+
+    <body >
+    	<div>
+    		<header class="w3-container w3-cell-row w3-black ">
+    			<div class="w3-card w3-cell w3-mobile" >
+    				<img src="static/images/grandpy5.png" style="width: 150px" style="height: 75px">
+    			</div>
+    			<div  class="w3-container w3-cell w3-cell-middle w3-mobile " style="width: 85%" >
+    				<h2>GrandPy, raconte moi une histoire...</h2>
+    			</div>
+    		</header>
+    		<div>
+    			<div class="w3-display-container w3-mobile""> 
+    				<img src="static/images/bcbooks.jpg " height="1000px" width="100%" >
+    				<div class="w3-display-middle w3-panel w3-border w3-round-large w3-border-black w3-black  ">
+                        <form>
+                            <p> Posez votre question à GrandPy: <input type="" name="" id="addressInput"><input type="submit" value="Envoyer" id="sendData"/></p>                          
+                        </form>
+    				</div>
+                    <div class="w3-container w3-grey" id="displayer" style="padding: 0px; height: 0px" >
+                        <div class="w3-col w3-container w3-grey w3-blue s12 m7 l9" id="story" style="height: 100%; overflow: auto;">
+                        </div>
+                        <div class="w3-col s12 m5 l3" style="padding-left: 0px;">
+                           <img id="gmap" style="width: 100%; height: 100%;" src="">
+                        </div>
+                    </div>
+                </div>
+    		</div>
+    		<footer class="w3-container w3-black w3-mobile">
+    			<div class="w3-container w3-center">
+    				<a href="https://github.com/Nivose44" target="_blank"><i class="fa fa-github " style="font-size:36px"></i></a>
+    				<div class="w3-cell-row">
+    					<div class="w3-cell">
+    						<img src="static/images/python.png" height="20" width="20">
+    					</div>
+    					<div class="w3-cell">
+    						<p>Rayane Berrada</p>
+    					</div>
+    					<div class="w3-cell">
+    						<img src="static/images/python.png" height="20" width="20">
+    					</div>
+    				</div>
+    				
+    			</div>
+    			
+    		</footer>
+    	</div>
+    
+    </body>
+</html>

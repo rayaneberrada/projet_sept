@@ -1,0 +1,4 @@
+{
+  "test_parser.py::test_choseMessage": true,
+  "test_parser.py::test_http_return": true
+}
