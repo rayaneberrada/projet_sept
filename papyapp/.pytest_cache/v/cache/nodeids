@@ -1,7 +1,7 @@
 [
   "test_parser.py::test_parser",
-  "test_parser.py::test_getNormalSearch",
+  "test_parser.py::test_placeSearch",
   "test_parser.py::test_getGeocode",
-  "test_parser.py::test_getWikiSearch",
+  "test_parser.py::test_addressSearch",
   "test_parser.py::test_getWikiText"
 ]

@@ -1,16 +1,16 @@
-from papyapp import papyapp, parser
+from papyapp import app, parser
 from flask import render_template, request, jsonify
 import json, requests, random
 
-@papyapp.route("/")
+@app.route("/")
 def mainpage():
 	return render_template("mainpage.html")
 
-@papyapp.route("/process", methods=["POST"])
+@app.route("/process", methods=["POST"])
 def getMap():
 	userSearch = request.form["userSearch"]
 	message = parser.choseMessage()
-	placeToSearch = parser.parser(userSearch) 
+	placeToSearch = parser.parser(userSearch)
 	geocode = parser.getGeocode(placeToSearch)
 	if not geocode["results"]:
 		"""
@@ -36,7 +36,7 @@ def getMap():
 			#If no informations have been found on the wiki media API, it search again with the address returned by the google map API
 			secondSearch = parser.addressSearch(geocode)
 			papyText = parser.getWikiText(secondSearch)
-			print(secondSearch)
+			print("secondSearch", secondSearch)
 			if papyText == False:
 				#If no informations returned with the address from the google map API, display that error message
 				message = "Désolé mais je n'ai trouvé qu'une adresse pour ce lieu:"

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-0
 import random
+import os
 import json
 import requests
 
@@ -7,7 +8,7 @@ import requests
 def parser(data):
     """
     the parser function will remove from the sentence written by the user all
-    the words contained in the words_to_remove list, all the words which match 
+    the words contained in the words_to_remove list, all the words which match
     the ones in the file stopword.json and remove all the words written before
     a word contained before certains words
     """
@@ -45,11 +46,10 @@ def parser(data):
     all the words that have a smaller index (so it means where before in the string address before
     it was changed into a list) are added to the list words_to_remove
     """
-    
+
     for word in address[:]:
         if word in stop_word_file or word in words_to_remove:
             address.remove(word)
-    print(address)
     return ' '.join(address)
 
 def choseMessage():
@@ -65,12 +65,13 @@ def choseMessage():
 
 def getGeocode(data):
     """
-    Get a json file from the google map API containing informations about the adress 
+    Get a json file from the google map API containing informations about the adress
     of the place searched by the user
     """
-    parameters = {"address": data, "key":"AIzaSyCYO19C5Kv2Q2ofylRVEnU2KS5PZYa6e3o"}
+    parameters = {"address": data, "key":"AIzaSyAbx36JQ_EiREnYBSAY2CzfiJaQHGBGhD8"}
     geocodeJson = requests.get('https://maps.googleapis.com/maps/api/geocode/json?', params=parameters)
     geocode = geocodeJson.json()
+    print("geocode", geocode)
     return geocode
 
 def placeSearch(data):
@@ -78,7 +79,6 @@ def placeSearch(data):
     Return a string adapted for the wikipedia API based on the place searched by the user
     """
     data = data.split()
-    print(data)
     search = ""
     for word in data:
         neWord = str(word[:1].upper() + word[1:])
@@ -86,7 +86,6 @@ def placeSearch(data):
             search = neWord
         else:
             search = search + "_" + neWord
-        print(search)
     return search
 
 
@@ -111,12 +110,11 @@ def getWikiText(data):
         "action": "query",
         "format": "json",
         "prop": "extracts",
+        "redirects": 1,
         "titles": data,
         "utf8": 1,
-        "exsentences": "4",
-        "explaintext": 1,
-        "exsectionformat": "plain",
-        "excontinue": ""
+        "exintro": 1,
+        "explaintext": 1
     }
     wikiTextJson = requests.get('https://fr.wikipedia.org/w/api.php?', params=parameters)
     wikiText = wikiTextJson.json()

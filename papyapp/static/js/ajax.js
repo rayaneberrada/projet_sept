@@ -9,12 +9,12 @@ $(document).ready(function() {
 			url : '/process'
 		})
 		.done(function(data) {
-			console.log(document.getElementById("story").textContent);
+			//console.log(document.getElementById("story").textContent);
 			if (data.error) {
 				$('#addressInput').text(data.error);
 			}
 			else {
-				$('#gmap').attr('src',"https://maps.googleapis.com/maps/api/staticmap?markers=color:blue|label:S|".concat(data.lat).concat(data.lng).concat("&zoom=17&size=300x300&key=AIzaSyCYO19C5Kv2Q2ofylRVEnU2KS5PZYa6e3o"));
+				$('#gmap').attr('src',"https://maps.googleapis.com/maps/api/staticmap?markers=color:blue|label:S|".concat(data.lat).concat(data.lng).concat("&zoom=17&size=300x300&key=AIzaSyAbx36JQ_EiREnYBSAY2CzfiJaQHGBGhD8"));
 				$('#story').prepend("<div class=\"w3-container w3-light-grey\"></div>");
 				$('#story').prepend("<div class=\"w3-container w3-grey\"></div>");
 				document.getElementById("story").childNodes[0].textContent = data.inputText;

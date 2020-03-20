@@ -1,1 +1,1 @@
-from papyapp import papyapp
+from papyapp import app

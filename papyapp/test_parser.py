@@ -4,7 +4,6 @@ from papyapp import parser
 
 
 def test_parser():
-    os.chdir("/home/rayane/Documents/Save/projet_sept")
     assert parser.parser("Salut GrandPy ! Est-ce que tu connais l'adresse d'OpenClassrooms ?") == "OpenClassrooms"
     assert parser.parser("Tu connais pas la tour eiffel?") == "tour eiffel"
     assert parser.parser("montre moi l'arc de triomphe") == "arc triomphe"
@@ -12,7 +11,7 @@ def test_parser():
 
 
 def test_placeSearch():
-    assert parser.placeSearch("voilà un exemple") == "Voilà_Un_Exemple" 
+    assert parser.placeSearch("voilà un exemple") == "Voilà_Un_Exemple"
 
 def test_getGeocode(monkeypatch):
     test = {
@@ -33,7 +32,7 @@ def test_getGeocode(monkeypatch):
     session = requests.Session()
     adapter = requests_mock.Adapter()
     session.mount('mock', adapter)
-    
+
     adapter.register_uri('GET', 'mock://maps.googleapis.com/maps/api/geocode/json?', json=test)
     resp = session.get('mock://maps.googleapis.com/maps/api/geocode/json?')
 
@@ -79,7 +78,7 @@ def test_getWikiText(monkeypatch):
     session = requests.Session()
     adapter = requests_mock.Adapter()
     session.mount('mock', adapter)
-    
+
     adapter.register_uri('GET', 'mock://fr.wikipedia.org/w/api.php?', json=test)
     resp = session.get('mock://fr.wikipedia.org/w/api.php?')
     def mockreturn(request, params):
